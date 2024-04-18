@@ -34,18 +34,30 @@ namespace Servicos
         {
             var produto = new Produto();
             var fornecedor = new Fornecedor();
-            
-            //produto = _repoProduto.BuscarPorId(inserirDto.IdProduto);
-            //fornecedor = _repoFornecedor.BuscarPorId(inserirDto.IdFornecedor);
 
             produto = _servProduto.BuscarPorId(inserirDto.IdProduto);
             fornecedor = _repoFornecedor.BuscarPorId(inserirDto.IdFornecedor);
 
             var associar = new Associar();
-            
-            associar.IdProduto = produto.Id;
-            associar.IdFornecedor = fornecedor.Id;
-            
+
+            try
+            {
+                associar.IdProduto = produto.Id;
+            }
+            catch (Exception)
+            {
+                throw new Exception("ID do Produto não encontrado");
+            }
+
+            try
+            {
+                associar.IdFornecedor = fornecedor.Id;
+            }
+            catch (Exception)
+            {
+                throw new Exception("ID do Fornecedor não encontrado");
+            }
+
             _repoAssociar.Inserir(associar);
         }
     }

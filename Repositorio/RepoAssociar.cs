@@ -36,10 +36,5 @@ namespace Repositorio
         
             return associar;
         }
-
-        //public void SalvarEfetivacao()
-        //{
-        //    _dataContext.SaveChanges();
-        // }
     }
 }

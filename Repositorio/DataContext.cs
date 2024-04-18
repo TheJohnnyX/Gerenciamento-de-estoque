@@ -29,9 +29,9 @@ namespace Repositorio
             modelBuilder.Entity<Produto>().HasKey(p => p.Id);
             modelBuilder.Entity<Fornecedor>().HasKey(p => p.Id);
 
-            modelBuilder.Entity<Associar>().HasKey(p => p.Id);
-            //modelBuilder.Entity<Associar>().HasOne(p => p.Produto).WithMany().HasForeignKey(p => p.IdProduto);
-            //modelBuilder.Entity<Associar>().HasOne(p => p.Fornecedor).WithMany().HasForeignKey(p => p.IdFornecedor);
+            //modelBuilder.Entity<Associar>().HasKey(p => p.Id);
+            modelBuilder.Entity<Associar>().HasOne(p => p.Produto).WithMany().HasForeignKey(p => p.IdProduto);
+            modelBuilder.Entity<Associar>().HasOne(p => p.Fornecedor).WithMany().HasForeignKey(p => p.IdFornecedor);
 
             base.OnModelCreating(modelBuilder);
         }
