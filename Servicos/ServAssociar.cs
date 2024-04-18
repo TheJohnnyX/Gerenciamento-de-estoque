@@ -11,8 +11,6 @@ namespace Servicos
     public interface IServAssociar
     {
         void Inserir(InserirAssociarDTO inserirDto);
-
-        //void Efetivar(int id);
     }
 
     public class ServAssociar : IServAssociar
@@ -20,35 +18,35 @@ namespace Servicos
         private IRepoAssociar _repoAssociar;
         private IServProduto _servProduto;
 
-        public ServAssociar(IRepoAssociar repoAssociar, IServProduto servProduto)
+        private IRepoProduto _repoProduto;
+        private IRepoFornecedor _repoFornecedor;
+
+        public ServAssociar(IRepoAssociar repoAssociar, IServProduto servProduto, IRepoProduto repoProduto, IRepoFornecedor repoFornecedor)
         {
             _repoAssociar = repoAssociar;
             _servProduto  = servProduto;
+
+            _repoProduto = repoProduto;
+            _repoFornecedor = repoFornecedor;
         }
 
         public void Inserir(InserirAssociarDTO inserirDto)
         {
-            //var associar = new Associar();
-
-            //associar.IdProduto = inserirDto.IdProduto;
-            //associar.IdFornecedor = inserirDto.IdFornecedor;
-
-            //_repoAssociar.Inserir(associar);
+            var produto = new Produto();
+            var fornecedor = new Fornecedor();
             
-            //_servAssociar.AtualizarInformacoesDaPromocao(associar.IdProduto, associar.IdFornecedor);
+            //produto = _repoProduto.BuscarPorId(inserirDto.IdProduto);
+            //fornecedor = _repoFornecedor.BuscarPorId(inserirDto.IdFornecedor);
+
+            produto = _servProduto.BuscarPorId(inserirDto.IdProduto);
+            fornecedor = _repoFornecedor.BuscarPorId(inserirDto.IdFornecedor);
+
+            var associar = new Associar();
             
-            //_repoPromover.SalvarEfetivacao();
+            associar.IdProduto = produto.Id;
+            associar.IdFornecedor = fornecedor.Id;
+            
+            _repoAssociar.Inserir(associar);
         }
-
-        //public void Efetivar(int id)
-        //{
-        //   var promover = _repoPromover.BuscarPorId(id);
-        //
-        //    promover.Status = EnumStatusPromover.Efetivado;
-        //
-        //    _servPizzaria.AtualizarInformacoesDaPromocao(promover.CodigoPizzaria, promover.DataVigencia, promover.Valor);
-        //
-        //    _repoPromover.SalvarEfetivacao();
-        //}
     }
 }

@@ -27,6 +27,9 @@ builder.Services.AddScoped<IRepoProduto, RepoProduto>();
 builder.Services.AddScoped<IServFornecedor, ServFornecedor>();
 builder.Services.AddScoped<IRepoFornecedor, RepoFornecedor>();
 
+builder.Services.AddScoped<IServAssociar, ServAssociar>();
+builder.Services.AddScoped<IRepoAssociar, RepoAssociar>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
