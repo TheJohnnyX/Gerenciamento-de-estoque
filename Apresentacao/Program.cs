@@ -21,6 +21,12 @@ builder.Services.AddScoped<IRepoPizzaria, RepoPizzaria>();
 builder.Services.AddScoped<IServPromover, ServPromover>();
 builder.Services.AddScoped<IRepoPromover, RepoPromover>();
 
+builder.Services.AddScoped<IServProduto, ServProduto>();
+builder.Services.AddScoped<IRepoProduto, RepoProduto>();
+
+builder.Services.AddScoped<IServFornecedor, ServFornecedor>();
+builder.Services.AddScoped<IRepoFornecedor, RepoFornecedor>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

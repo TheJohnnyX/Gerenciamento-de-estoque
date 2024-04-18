@@ -17,11 +17,14 @@ namespace Repositorio
 
         public DbSet<Pizzaria> Pizzaria { get; set; }
         public DbSet<Promover> Promover { get; set; }
+        public DbSet<Produto> Produto { get; set; }
+        public DbSet<Fornecedor> Fornecedor { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Pizzaria>().HasKey(p => p.Id);
-            modelBuilder.Entity<Promover>().HasKey(p => p.Id);
+            modelBuilder.Entity<Produto>().HasKey(p => p.Id);
+            modelBuilder.Entity<Fornecedor>().HasKey(p => p.Id);
             modelBuilder.Entity<Promover>().HasOne(p => p.Pizzaria).WithMany().HasForeignKey(p => p.CodigoPizzaria);
 
             base.OnModelCreating(modelBuilder);
