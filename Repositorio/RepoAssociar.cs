@@ -10,6 +10,7 @@ namespace Repositorio
     public interface IRepoAssociar
     {
         void Inserir(Associar associar);
+        List<Associar> BuscarTodos();
         Associar BuscarPorId(int id);
         //void SalvarEfetivacao();
         void Remover(Associar associar);
@@ -29,6 +30,13 @@ namespace Repositorio
             _dataContext.Add(associar);
 
             _dataContext.SaveChanges();
+        }
+
+        public List<Associar> BuscarTodos()
+        {
+            var associar = _dataContext.Associar.ToList();
+
+            return associar;
         }
 
         public Associar BuscarPorId(int id)

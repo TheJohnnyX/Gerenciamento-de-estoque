@@ -11,6 +11,10 @@ namespace Servicos
     public interface IServAssociar
     {
         void Inserir(InserirAssociarDTO inserirDto);
+
+        List<Associar> BuscarTodos();
+
+        void Remover(int id);
     }
 
     public class ServAssociar : IServAssociar
@@ -59,6 +63,20 @@ namespace Servicos
             }
 
             _repoAssociar.Inserir(associar);
+        }
+
+        public List<Associar> BuscarTodos()
+        {
+            var associar = _repoAssociar.BuscarTodos();
+
+            return associar;
+        }
+
+        public void Remover(int id)
+        {
+            var associar = _repoAssociar.BuscarTodos().Where(p => p.Id == id).FirstOrDefault();
+
+            _repoAssociar.Remover(associar);
         }
     }
 }

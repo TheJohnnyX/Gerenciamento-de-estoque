@@ -29,5 +29,21 @@ namespace Apresentacao
                 return BadRequest(e.Message);
             }
         }
+
+        [Route("/api/[controller]/{id}")]
+        [HttpDelete]
+        public IActionResult Remover(int id)
+        {
+            try
+            {
+                _servAssociar.Remover(id);
+
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
