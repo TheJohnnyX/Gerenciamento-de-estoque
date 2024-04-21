@@ -47,6 +47,7 @@ namespace Servicos
             try
             {
                 associar.IdProduto = produto.Id;
+                associar.descProduto = produto.Nome;
             }
             catch (Exception)
             {
@@ -56,6 +57,7 @@ namespace Servicos
             try
             {
                 associar.IdFornecedor = fornecedor.Id;
+                associar.descFornecedor = fornecedor.Nome;
             }
             catch (Exception)
             {

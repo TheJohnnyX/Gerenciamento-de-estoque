@@ -30,6 +30,31 @@ namespace Apresentacao
             }
         }
 
+        [HttpGet]
+        public IActionResult BuscarTodos()
+        {
+            try
+            {
+                var associar = _servAssociar.BuscarTodos();
+
+                var associarEnxuto = associar.Select(p =>
+                    new
+                    {
+                        Id = p.Id,
+                        IdProduto = p.IdProduto,
+                        descProduto = p.descProduto,
+                        IdFornecedor = p.IdFornecedor,
+                        descFornecedor = p.descProduto
+                    }).ToList();
+
+                return Ok(associarEnxuto);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         [Route("/api/[controller]/{id}")]
         [HttpDelete]
         public IActionResult Remover(int id)

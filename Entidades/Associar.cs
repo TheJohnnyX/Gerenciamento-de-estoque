@@ -12,7 +12,11 @@ namespace Entidades
 
         public int IdProduto { get; set; }
 
+        public string descProduto { get; set; }
+
         public int IdFornecedor { get; set; }
+
+        public string descFornecedor { get; set; }
 
         public Produto Produto { get; set; }
 
