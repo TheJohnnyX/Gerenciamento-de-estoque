@@ -12,6 +12,7 @@ namespace Repositorio
         void Inserir(Associar associar);
         Associar BuscarPorId(int id);
         //void SalvarEfetivacao();
+        void Remover(Associar associar);
     }
 
     public class RepoAssociar : IRepoAssociar
@@ -35,6 +36,13 @@ namespace Repositorio
             var associar = _dataContext.Associar.Where(p => p.Id == id).FirstOrDefault();
         
             return associar;
+        }
+
+        public void Remover(Associar associar)
+        {
+            _dataContext.Remove(associar);
+
+            _dataContext.SaveChanges();
         }
     }
 }
