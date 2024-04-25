@@ -2,7 +2,7 @@
 # API de Gerenciamento de Estoque
 
 ## Propósito do sistema
-Gerenciamento de estoque, permitindo a adição, edição, exclusão e listagem de produtos, fornecedores e validações.
+Gerenciamento de estoque, permitindo a adição, edição, exclusão e listagem de produtos e fornecedores. Além disso, possui operações que relacionam mais de uma entidade, simulando uma venda.
 
 ## Usuários
 Funcionários da empresa responsáveis pelo gerenciamento de estoque.
