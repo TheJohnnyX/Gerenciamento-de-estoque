@@ -15,12 +15,6 @@ builder.Services.AddDbContext<DataContext>(option =>
     option.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Apresentacao"))
 );
 
-builder.Services.AddScoped<IServPizzaria, ServPizzaria>();
-builder.Services.AddScoped<IRepoPizzaria, RepoPizzaria>();
-
-builder.Services.AddScoped<IServPromover, ServPromover>();
-builder.Services.AddScoped<IRepoPromover, RepoPromover>();
-
 builder.Services.AddScoped<IServProduto, ServProduto>();
 builder.Services.AddScoped<IRepoProduto, RepoProduto>();
 
