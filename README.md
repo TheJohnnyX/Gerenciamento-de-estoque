@@ -1,11 +1,13 @@
 
 # API de Gerenciamento de Estoque
 
-Propósito do sistema: Gerenciamento de estoque, permitindo a adição, edição, exclusão e listagem de produtos, fornecedores e validações.
+##Propósito do sistema
+Gerenciamento de estoque, permitindo a adição, edição, exclusão e listagem de produtos, fornecedores e validações.
 
-Usuários: Funcionários da empresa responsáveis pelo gerenciamento de estoque.
+##Usuários
+Funcionários da empresa responsáveis pelo gerenciamento de estoque.
 
-# N-Layer
+##N-Layer
 
 # Camada de Apresentação (Presentation Layer)
 Responsáveis por receber requisições HTTP, chamar os serviços da camada de lógica de negócios e retornar as respostas adequadas.
