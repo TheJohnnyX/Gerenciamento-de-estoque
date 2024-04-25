@@ -14,6 +14,8 @@ namespace Repositorio
         Associar BuscarPorId(int id);
         //void SalvarEfetivacao();
         void Remover(Associar associar);
+
+        Associar BuscarAssociacao(Associar associar);
     }
 
     public class RepoAssociar : IRepoAssociar
@@ -53,5 +55,12 @@ namespace Repositorio
             _dataContext.SaveChanges();
         }
 
+        public Associar BuscarAssociacao(Associar associar)
+        {
+            var associacao = _dataContext.Associar.Where(p => 
+                ( p.IdProduto == associar.IdProduto) && (p.IdFornecedor == associar.IdFornecedor)).FirstOrDefault();
+
+            return associacao;
+        }
     }
 }

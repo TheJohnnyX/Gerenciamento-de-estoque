@@ -30,6 +30,9 @@ builder.Services.AddScoped<IRepoFornecedor, RepoFornecedor>();
 builder.Services.AddScoped<IServAssociar, ServAssociar>();
 builder.Services.AddScoped<IRepoAssociar, RepoAssociar>();
 
+builder.Services.AddScoped<IServVender, ServVender>();
+builder.Services.AddScoped<IRepoVender, RepoVender>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

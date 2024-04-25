@@ -15,6 +15,8 @@ namespace Servicos
         List<Associar> BuscarTodos();
 
         void Remover(int id);
+
+        Associar BuscarAssociacao(Associar associar);
     }
 
     public class ServAssociar : IServAssociar
@@ -79,6 +81,13 @@ namespace Servicos
             var associar = _repoAssociar.BuscarTodos().Where(p => p.Id == id).FirstOrDefault();
 
             _repoAssociar.Remover(associar);
+        }
+
+        public Associar BuscarAssociacao(Associar associar)
+        {
+            var associacao = _repoAssociar.BuscarAssociacao(associar);
+
+            return associacao;
         }
     }
 }

@@ -6,21 +6,21 @@ namespace Apresentacao
 {
     [Route("api/[Controller]")]
     [ApiController]
-    public class AssociarController : ControllerBase
+    public class VenderController : ControllerBase
     {
-        private IServAssociar _servAssociar;
+        private IServVender _servVender;
 
-        public AssociarController(IServAssociar servAssociar)
+        public VenderController(IServVender servVender)
         {
-            _servAssociar = servAssociar;
+            _servVender = servVender;
         }
 
         [HttpPost]
-        public ActionResult Inserir(InserirAssociarDTO inserirDto)
+        public ActionResult Inserir(InserirVenderDTO inserirDto)
         {
             try
             {
-                _servAssociar.Inserir(inserirDto);
+                _servVender.Inserir(inserirDto);
 
                 return Ok();
             }
@@ -35,19 +35,19 @@ namespace Apresentacao
         {
             try
             {
-                var associar = _servAssociar.BuscarTodos();
+                var vender = _servVender.BuscarTodos();
 
-                var associarEnxuto = associar.Select(p =>
+                var venderEnxuto = vender.Select(p =>
                     new
                     {
                         Id = p.Id,
                         IdProduto = p.IdProduto,
-                        descProduto = p.descProduto,
                         IdFornecedor = p.IdFornecedor,
-                        descFornecedor = p.descFornecedor
+                        Quantidade = p.Quantidade,
+                        Valor = p.Valor
                     }).ToList();
 
-                return Ok(associarEnxuto);
+                return Ok(venderEnxuto);
             }
             catch (Exception e)
             {
@@ -61,7 +61,7 @@ namespace Apresentacao
         {
             try
             {
-                _servAssociar.Remover(id);
+                _servVender.Remover(id);
 
                 return Ok();
             }
