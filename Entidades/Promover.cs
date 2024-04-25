@@ -23,6 +23,7 @@ namespace Entidades
         public Pizzaria Pizzaria { get; set; }
     }
 
+
     public enum EnumStatusPromover
     {
         EmAberto = 1,
